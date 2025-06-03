@@ -8,6 +8,7 @@ const MobileMenu = ({ name, isLoggedIn, handleLogout }) => {
   const [scrolled, setIsScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const scrollRef = useRef(null);
+  
 
   useEffect(() => {
     const el = scrollRef.current;
