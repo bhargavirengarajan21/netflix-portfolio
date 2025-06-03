@@ -1,7 +1,7 @@
 export const userData = {
-    isLoggedIn: true,
+    isLoggedIn: false,
     userName: '',
-    showedIntro: true,
+    showedIntro: false,
     theme: 'dark',
     continueWatching: [],
     sessionData: {}
