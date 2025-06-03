@@ -1,0 +1,71 @@
+@import './netflix-intro.css';
+@import './header.css';
+@import './footer.css';
+@import './layout.css';
+@import './hero.css';
+@import './modal.css';
+@import './card.css';
+@import './project.css';
+@import './hireme.css';
+@import './login.css';
+@import './experience.css';
+@import './skill.css';
+@import './theme.css';
+
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --card-bg: #f5f5f5;
+  --accent: #e50914;
+}
+
+[data-theme='dark'] {
+  --bg: #000000;
+  --text: #ffffff;
+  --card-bg: #1f1f1f;
+  --accent: #e50914;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+a,h1,h2,h3,h4,h5,h6 {
+  color: var(--text) !important;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+  margin-bottom: 0;
+}
+
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes ghibliFloatZoom {
+  0% {
+    transform: scale(1) translateY(0px);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.04) translateY(-12px);
+    filter: brightness(1.07);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    filter: brightness(1);
+  }
+}

@@ -1,0 +1,92 @@
+.netflix-card {
+  width: 15rem;
+  height: 10rem;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid white;
+  transition: transform 0.2s;
+  margin: 0.5rem;
+  flex: 0  0 auto;
+}
+.netflix-card:hover,
+.netflix-card.hovered {
+  transform: scale(1.5);
+  z-index: 2;
+  border: none;
+  box-shadow: 0 2px 12px red;
+}
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #181818 30%, transparent 100%);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+}
+.netflix-card:hover .card-overlay,
+.netflix-card.hovered .card-overlay {
+  opacity: 1;
+  display: flex
+}
+.card-title {
+  font-weight: bold;
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.top {  
+  bottom: 6rem;                                                                                                 
+} 
+
+.bottom {
+  bottom: 2rem;
+}
+
+.card-short {
+  font-size: 0.75rem;
+  color: #ccc;
+  font-weight: normal;
+  padding: 1rem;
+  position: absolute;
+  bottom: 2.5rem;
+  z-index: 1;
+}
+.card-tool {
+  font-size: 0.75rem;
+  color: white;
+  font-weight: normal;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0rem;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card-tool-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+}
+
+.dot {
+  color: gray;
+  padding: 0.15rem 0.15rem 1.25rem 0.15rem;
+  font-size: 2rem;
+}

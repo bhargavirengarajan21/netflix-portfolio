@@ -1,0 +1,42 @@
+
+.card-row {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  gap: 24px 8px;
+  padding: 5rem 2rem;
+  overflow: scroll;
+  scrollbar-width: none; 
+  scroll-behavior: smooth;
+  &::scroll-marker {
+    display: none;
+  }
+}
+
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 3;
+  border-radius: 50%;
+  transition: transform 1s ease;
+}
+
+.scroll-arrow.left {
+  left: 0;
+}
+
+.scroll-arrow.right {
+  right: 0;
+}
+
+.dashboard-container {
+  position: relative;
+}
