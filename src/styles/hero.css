@@ -6,11 +6,12 @@
   align-items: flex-end;
   overflow: hidden;
   background: #000;
-  justify-content: center;
+ 
 
   @media screen and (max-width: 768px) {
     height: 20rem;
     align-items: center;
+    justify-content: center;
     
   }
 }

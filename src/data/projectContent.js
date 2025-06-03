@@ -1,5 +1,10 @@
 import NetflixPortfolio from "../assets/picture-3.png";
-
+import Dithering from "../assets/dithering.png";
+import Airpollution from "../assets/airpollution.jpg";
+import Accident from "../assets/Accident.png";
+import eventManagement from "../assets/event-management.jpg";
+import music from "../assets/Music.jpg";
+import dbms from "../assets/dbms.png";
 
 const projectContent = [
   {
@@ -20,6 +25,7 @@ const projectContent = [
     description:
       "Built a Python-based system to optimize electrostatic pattern uniformity and image processing accuracy using CuPy, Python, and Colab for GPU acceleration. Designed algorithms to enhance quality and visualized electrostatic force distributions.",
     tools: ["Python", "CuPy", "Google Colab", "Algorithms"],
+    image: Dithering,
     link: {
       githubLink: "https://github.com/bhargavirengarajan21/Electrostatic-halftoning/tree/master",
       websiteLink: "https://colab.research.google.com/drive/1S603lslWlespoRnigT-iqzQMrKgxkmtf#scrollTo=tjcqNr35gxg2"
@@ -31,6 +37,7 @@ const projectContent = [
     description:
       "Developed a visualization tool using GeoPandas, Python, and Matplotlib to analyze zoning patterns and help urban planners make informed decisions. Enabled region classification and visual zoning analysis with interactive plots.",
     tools: ["Python", "GeoPandas", "Matplotlib", "Spatial Analysis"],
+    image: dbms,
     link: {
       githubLink: "https://colab.research.google.com/drive/1XQIYltYofb57Iw6XL7Hb7qDqdSFNUt5d?authuser=1",
     },
@@ -41,8 +48,9 @@ const projectContent = [
     description:
       "Built a system using Hadoop, PySpark, and React Maps to process traffic accident data and detect high-risk zones. Improved infrastructure planning using spatial clustering and interactive accident trend visualizations.",
     tools: ["Python", "Hadoop", "PySpark", "React Maps", "Matplotlib"],
+    image: Accident,
     link: {
-      githubLink: "https://github.com/bhargavirengarajan21/accident-visualization",
+      websiteLink: "https://zpg98r.csb.app"
     },
   },
   {
@@ -51,6 +59,7 @@ const projectContent = [
     description:
       "Designed a full-stack app with real-time chat using Redis, built on GatsbyJS, Node.js, and Docker. Enabled seamless event posting, joining, and coordination for multiple users simultaneously.",
     tools: ["GatsbyJS", "React.js", "Node.js", "Redis", "Docker", "CSS"],
+    image: eventManagement,
     link: {
       githubLink: "https://github.com/bhargavirengarajan21/chat",
     },
@@ -61,6 +70,7 @@ const projectContent = [
     description:
       "Created a Flask app to predict PM10 air pollution levels using the Delhi AQI dataset. Integrated XGBoost for robust model accuracy and deployed with a user-friendly web interface.",
     tools: ["Python", "Flask", "XGBoost", "Machine Learning", "TensorFlow", "OpenCV"],
+    image: Airpollution,
     link: {
       githubLink: "https://github.com/bhargavirengarajan21/airpollution",
       websiteLink: "https://ieeexplore.ieee.org/document/9315283"
@@ -69,6 +79,7 @@ const projectContent = [
   {
     title: "Music Playing Using Hand Gestures",
     shortDesc: "Gesture-controlled music player using ASL and CNNs.",
+    image:music,
     description:
       "Developed a touch-free music controller using TensorFlow CNN, OpenCV, and Flask. Enabled hands-free music playback through real-time ASL gesture recognition with 90%+ accuracy.",
     tools: ["Python", "TensorFlow", "OpenCV", "Flask", "Keras", "SQLite"],

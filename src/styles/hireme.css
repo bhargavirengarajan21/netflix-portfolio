@@ -122,3 +122,37 @@
     width: 19rem;
   }
 }
+
+
+.chat-box {
+  background: #1c1c1c;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.chat-bubble {
+  padding: 0.7rem;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  max-width: 80%;
+}
+.chat-bubble.you {
+  background: #e50914;
+  color: white;
+  align-self: flex-end;
+}
+.chat-bubble.ai {
+  background: #333;
+  color: #fff;
+  align-self: flex-start;
+}
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}
+.chat-input input {
+  flex: 1;
+  padding: 0.5rem;
+}

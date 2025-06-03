@@ -3,7 +3,7 @@ const HeaderData = {
     logo,
     menuContent: [{
         name: "Home",
-        link: "#"
+        link: "/"
     }, {
         name: "About",
         link: "#workandeducation"

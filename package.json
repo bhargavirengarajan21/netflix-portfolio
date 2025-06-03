@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@tailwindcss/vite": "^4.1.7",
     "axios": "^1.9.0",
     "connect-redis": "^8.1.0",
@@ -20,6 +21,7 @@
     "express-session": "^1.18.1",
     "firebase": "^11.8.1",
     "firebase-admin": "^13.4.0",
+    "http": "^0.0.1-security",
     "ioredis": "^5.6.1",
     "node": "^22.16.0",
     "nodemailer": "^7.0.3",

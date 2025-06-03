@@ -1,40 +1,63 @@
-// import { OpenAI } from 'openai';
+import dotenv from "dotenv";
+import axios from 'axios';
+import fs from 'fs';
+dotenv.config({ path: "./deployment/.env" });
 
-// const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+export const AIMailService = async (req, res) => {
+  const { role, question } = req.body;
+  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
 
-// export const AIMailService = async (req, res) => {
-//   const { role, question, toEmail } = req.body;
+  const resumeText = fs.readFileSync('./server/service/data/resume.txt', 'utf8');
+  const prompt = `here is about me ${resumeText} chat with the ${role} and answer if only they ask about me if not chat generally only one message. Message: ${question}`;
 
-//   try {
-//     const completion = await openai.chat.completions.create({
-//       messages: [
-//         { role: 'user', content: `Write a professional email to a ${role}. ${question}` },
-//       ],
-//       model: 'gpt-3.5-turbo',
-//     });
+  const body = {
+    contents: [
+      {
+        parts: [
+          {
+            text: prompt,
+          },
+        ],
+      },
+    ],
+  };
 
-//     const aiMessage = completion.choices[0].message.content;
+ axios
+  .post(url, body, { headers: { 'Content-Type': 'application/json' } })
+  .then((response) => {
+    const message = response.data.candidates?.[0]?.content?.parts?.[0]?.text;
+    console.log("Gemini:", message);
+    res.status(200).json({success: true, content: message});
+  })
+  .catch((err) => {
+    console.error("Gemini error:", err.response?.data || err.message);
+    res.status(400);
+  });
+}
 
-//     const transporter = nodemailer.createTransport({
-//       service: 'gmail',
-//       auth: {
-//         user: process.env.MY_EMAIL,
-//         pass: process.env.MY_APP_PASSWORD, // Gmail App password
-//       },
-//     });
+export const mailService = async(req, res) => {
+    try {
+      const { message, toEmail } = req.body;
+      const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+          user: process.env.MY_EMAIL,
+          pass: process.env.MY_APP_PASSWORD, // Gmail App password
+        },
+      });
 
-//     const mailOptions = {
-//       from: process.env.MY_EMAIL,
-//       to: toEmail,
-//       subject: `Message for ${role}`,
-//       text: aiMessage,
-//     };
+      const mailOptions = {
+        from: process.env.MY_EMAIL,
+        to: toEmail,
+        subject: `Message for ${role}`,
+        text: message,
+      };
 
-//     await transporter.sendMail(mailOptions);
-
-//     res.status(200).json({ success: true, message: 'Email sent successfully', content: aiMessage });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ success: false, error: err.message });
-//   }
-// }
+      await transporter.sendMail(mailOptions);
+      res.status(200).json({ success: true, message: 'Mail Sent'});
+        
+    } catch(err) {
+      console.error(err);
+      res.status(500).json({ success: false, error: err.message });
+    }
+}

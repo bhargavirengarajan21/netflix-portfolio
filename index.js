@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import dotenv from "dotenv";
 dotenv.config({ path: "./deployment/.env" });
 import { validateLoggedIn, authToken, setSession, getSessionValue, unsetSession } from "./server/middleware/auth-middle.js";
+import { AIMailService, mailService } from "./server/service/ai-service.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,7 +32,8 @@ app.get("/get-session", async (req, res) => {
 
 app.post("/unset-session",unsetSession);
 
-// app.post('/generate-and-send',AIMailService);
+app.post('/generate',AIMailService);
+app.post('/send', mailService);
 
 app.post("/set-session", async (req, res) => {
   setSession(req, res, () => {

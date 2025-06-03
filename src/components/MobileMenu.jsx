@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import HeaderData from '../data/headerData';
+import ThemeSwitcher from './ThemeSwitcher';
 import ProfileImage from './Profile';
 
 const MobileMenu = ({ name, isLoggedIn, handleLogout }) => {
@@ -49,6 +50,7 @@ const MobileMenu = ({ name, isLoggedIn, handleLogout }) => {
             ))}
             </ul>
         </nav>
+       <ThemeSwitcher />
       {name && isLoggedIn && (
         <div className="profile-dropdown-wrapper" ref={dropdownRef}>
           <ProfileImage

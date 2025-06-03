@@ -10,6 +10,9 @@ const DashBoard = () => {
         <Layout>
             <div className="dashboard-container">
             <HeroSection />
+            <Project />
+            <SkillsSection />
+            <HireMeSection />
             </div>
         </Layout>
     );

@@ -7,6 +7,10 @@
   position: absolute;
   right: 7rem;
   top: 3.5%;
+
+  @media (max-width: 900px) {
+    top: 30%;
+  }
 }
 
 .theme-switch input {
