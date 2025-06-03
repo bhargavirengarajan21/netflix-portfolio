@@ -24,11 +24,11 @@ const Layout = ({children}) => {
     return (
         <>
             <div className="layout">
-                {data.showedIntro && <Header name={data?.sessionData?.userName} setDataContent={setData} isLoggedIn={data.isLoggedIn}/> }
+                <Header name={data?.sessionData?.userName} setDataContent={setData} isLoggedIn={data.isLoggedIn}/> 
                 <main className="main-content">
                     {children}
                 </main>
-                { data.showedIntro && <Footer/>}
+                <Footer/>
             </div>
         </>
     );

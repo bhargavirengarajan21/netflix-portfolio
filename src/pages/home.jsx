@@ -21,9 +21,7 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <Layout>
-                {ShowContent()}
-            </Layout>
+          {ShowContent()}
         </div>
     );
 };

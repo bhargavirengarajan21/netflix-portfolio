@@ -7,12 +7,13 @@ import logoImage from '../assets/name-card.png';
 const NetflixIntro = () => { 
   const [clicked, setClicked] = useState(false);
   const {data, setData} = useData();
+  const redirectURL = data.isLoggedIn? '/browse' : '/login';
 
   useEffect(() => {
       if (data.showedIntro) {
           window.location.href = redirectURL;
       }
-  }, [data.showedIntro]);
+  }, []);
 
   const [play, { stop }] = useSound(netflixSound, {
     volume: 1,
@@ -23,11 +24,12 @@ const NetflixIntro = () => {
   const handlePlayClick = () => {
     setClicked(true);
     play();
-    setTimeout(() => setData({
-      ...data,
-      showedIntro: true,
-    }), 5000);
+    setTimeout(() => { 
+      setData((prev) => ({...prev, showedIntro: true}));
+      window.location.href = redirectURL;
+    }, 5000);
     clearTimeout();
+    
   };
 
   return (
