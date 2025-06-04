@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from 'uuid';
 import dotenv from "dotenv";
 dotenv.config({ path: "./deployment/.env" });
+import cors from 'cors';
 import { validateLoggedIn, authToken, setSession, getSessionValue, unsetSession } from "./server/middleware/auth-middle.js";
 import { AIMailService, mailService } from "./server/service/ai-service.js";
 
@@ -55,3 +56,8 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+app.use(cors({
+  origin: 'https://netflix-portfolio-black.vercel.app/',
+  credentials: true
+}));
