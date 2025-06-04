@@ -32,6 +32,10 @@
         .theme-switch {
           top: 31%;
         }
+
+        a {
+          color: white !important;
+        }
     }
 
     .logo {
@@ -91,6 +95,9 @@
     width: 100%;
     z-index: 2;
     background: linear-gradient(to bottom, black 40%, transparent 100%);
+    a {
+      color: white !important;
+    }
   }
 
   .logo {

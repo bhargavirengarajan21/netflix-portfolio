@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: netflix-portfolio-fullstack
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3001"
+    env_file:
+      - .env                  # Frontend VITE_*
+      - deployment/.env       # Backend env vars
+    volumes:
+      - ./deployment/firebase-account.json:/app/deployment/firebase-account.json
+    restart: always
+    depends_on:
+      - redis
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    restart: always

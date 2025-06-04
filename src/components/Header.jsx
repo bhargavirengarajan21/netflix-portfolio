@@ -12,7 +12,7 @@ const Header = ({ name, setDataContent, isLoggedIn }) => {
 
   const handleLogout = async () => {
     setDataContent((prevData) => ({ ...prevData, isLoggedIn: false, sessionData: {} }));
-    await fetch('/unset-session', { method: 'POST' });
+    await fetch(`${import.meta.env.VITE_API_URL}/unset-session`, { method: 'POST' });
     setDropdownOpen(false);
     window.location.href = '/login';
   };

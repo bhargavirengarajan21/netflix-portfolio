@@ -1,18 +1,19 @@
-# Use Node LTS base image
-FROM node:23.11-alpine
+FROM node:18-alpine
 
-# Set working directory
-WORKDIR /app 
+WORKDIR /app
 
-# Copy files
+# Copy only dependency declarations
 COPY package*.json ./
-COPY index.js ./
 
-# Install dependencies
+# Install fresh dependencies
 RUN npm install
 
-# Expose the port
-EXPOSE 3000
+# Copy everything else (after install)
+COPY . .
 
-# Start the server
-CMD ["npm", "start"]
+# Build frontend
+RUN npm run build
+
+ENV NODE_ENV=production
+EXPOSE 3001
+CMD ["node", "index.js"]
