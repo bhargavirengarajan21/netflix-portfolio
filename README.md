@@ -20,14 +20,14 @@ This project is a Netflix-inspired portfolio web application built with ReactJS,
 
 ## Features
 
-- 🎬 **Netflix-style UI**: Responsive design and user experience inspired by Netflix.
-- 🔑 **Authentication**: Login functionality, with potential Firebase integration.
-- 📺 **Browse Dashboard**: Main content area for portfolio items or media.
-- ⚡ **Built with Vite**: Super-fast dev server and optimized builds.
-- 🎨 **TailwindCSS**: Utility-first CSS for rapid UI development.
-- 🌐 **Routing**: React Router v6 for multi-page navigation.
-- 🛠️ **Backend Ready**: Includes Express server, Redis, and session handling for full-stack capabilities.
-- ☁️ **Cloud Ready**: Configured for deployment (Docker, Vercel, EC2).
+-  **Netflix-style UI**: Responsive design and user experience inspired by Netflix.
+-  **Authentication**: Login functionality, with potential Firebase integration.
+-  **Browse Dashboard**: Main content area for portfolio items or media.
+-  **Built with Vite**: Super-fast dev server and optimized builds.
+-  **TailwindCSS**: Utility-first CSS for rapid UI development.
+-  **Routing**: React Router v6 for multi-page navigation.
+-  **Backend Ready**: Includes Express server, Redis, and session handling for full-stack capabilities.
+-  **Cloud Ready**: Configured for deployment (Docker, Vercel, EC2).
 
 ## Project Structure
 
