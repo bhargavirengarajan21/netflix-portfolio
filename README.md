@@ -116,16 +116,7 @@ npm run build
 5. **Run the Backend Server (if any):**
    ```bash
    npm run start
-   ```
-
-6. **Set up a Process Manager (optional but recommended):**
-   - Use PM2 or systemd to keep your app running:
-     ```bash
-     npm install -g pm2
-     pm2 start index.js
-     pm2 startup
-     pm2 save
-     ```
+   ``
 
 7. **Configure Nginx as a Reverse Proxy (Recommended):**
    - Install Nginx: `sudo apt-get install nginx`
