@@ -25,8 +25,8 @@ jobs:
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
              mkdir -p deployment
-             echo "${{ secrets.FRONTEND_ENV_FILE }}" > /home/ec2-user/app/.env
-             echo "${{ secrets.BACKEND_ENV_FILE }}" > /home/ec2-user/app/deployment/.env
+             echo "${{ secrets.FRONTEND_ENV_FILE }}" > /app/.env
+             echo "${{ secrets.BACKEND_ENV_FILE }}" > /app/deployment/.env
 
             cd app
             docker-compose down || true
