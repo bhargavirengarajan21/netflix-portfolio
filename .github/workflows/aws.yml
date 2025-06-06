@@ -23,12 +23,7 @@ jobs:
           script: |
             cd /home/ec2-user
             rm -rf temp-repo
-            git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git temp-repo
-
-            mkdir -p app
-            cp -r temp-repo/netflix/* ./app
-            cp -r temp-repo/netflix/.* ./app 2>/dev/null || true
-            rm -rf temp-repo
+            git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
             echo "${{ secrets.ENV_FILE }}" > /home/ec2-user/app/.env
 
