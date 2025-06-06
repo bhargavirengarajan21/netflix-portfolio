@@ -21,13 +21,17 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            rm -rf app
+            set -e
+
+            cd ~
+            sudo rm -rf app  # Use sudo to avoid permission issues
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
-            
-            mkdir -p deployment
-            echo "${{ secrets.BACKEND_ENV_FILE }}" > /app/deployment/.env
-            
+
             cd app
+            echo "${{ secrets.FRONTEND_ENV_FILE }}" > .env
+            echo "${{ secrets.BACKEND_ENV_FILE }}" > deployment/.env
+
             docker-compose down || true
             docker-compose up -d --build
-            sudo systemctl reload nginx
+
+            sudo systemctl reload nginx || true
