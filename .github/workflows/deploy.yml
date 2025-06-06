@@ -1,4 +1,4 @@
-name: Deploy to EC2 (Netflix App)
+name: Deploy to EC2
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: SSH into EC2 and Deploy
+      - name: SSH into EC2 and Deploy App
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -21,16 +21,18 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            # Navigate to home
             cd /home/ec2-user
+            rm -rf temp-repo
+            git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git temp-repo
 
-            # Remove temp folder if it exists
+            mkdir -p app
+            cp -r temp-repo/netflix/* ./app
+            cp -r temp-repo/netflix/.* ./app 2>/dev/null || true
             rm -rf temp-repo
 
-            # Clone the repo
-            git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
+            # Inject the .env file from secret
+            echo "${{ secrets.ENV_FILE }}" > /home/ec2-user/app/.env
 
-            # Go to app and deploy
             cd app
             docker-compose down || true
             docker-compose up -d --build
