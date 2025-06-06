@@ -28,6 +28,7 @@ jobs:
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
             cd app
+            mkdir deployment
             echo "${{ secrets.FRONTEND_ENV_FILE }}" > .env
             echo "${{ secrets.BACKEND_ENV_FILE }}" > deployment/.env
 
