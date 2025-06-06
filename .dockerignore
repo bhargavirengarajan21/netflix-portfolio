@@ -1,2 +1,10 @@
-node_modules
-dist
+# Prevent unnecessary files from being sent to Docker context
+
+/node_modules
+npm-debug.log
+*.md
+.git
+.vscode
+coverage
+*.pem
+/src/component

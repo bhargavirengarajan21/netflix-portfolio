@@ -57,7 +57,7 @@ export const loginAsGuest = async () => {
 };
 
 export const sendTokenToBackend = async (idToken) => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
+  const response = await fetch('/login', {
     method: "POST",
     credentials: "include",
     headers: {

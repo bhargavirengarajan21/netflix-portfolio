@@ -8,7 +8,7 @@ const Layout = ({children}) => {
 
     useEffect(async() => {
         const setSessionData = async() => {
-            await fetch(`${import.meta.env.VITE_API_URL}/get-session`, {credentials: "include"}).then(res => res.ok ? res.json() : null).then(data => {
+            await fetch('/get-session', {credentials: "include"}).then(res => res.ok ? res.json() : null).then(data => {
                 data.user = JSON.parse(data.user);
                 if (data && data.user) {
                     console.log("User data fetched:", data.user);
