@@ -3,37 +3,11 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main
+      - main  # or change to 'master' if your repo uses that
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: SSH into EC2 and Deploy App
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
-          key: ${{ secrets.EC2_SSH_KEY }}
-          port: 22
-          script: |
-            cd /home/ec2-user
-            rm -rf temp-repo
-            git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git temp-repo
-
-            mkdir -p app
-            cp -r temp-repo/netflix/* ./app
-            cp -r temp-repo/netflix/.* ./app 2>/dev/null || true
-            rm -rf temp-repo
-
-            # Inject the .env file from secret
-            echo "${{ secrets.ENV_FILE }}" > /home/ec2-user/app/.env
-
-            cd app
-            docker-compose down || true
-            docker-compose up -d --build
-            sudo systemctl reload nginx
+      - name: Print Hello
+        run: echo "✅ Workflow is working"
