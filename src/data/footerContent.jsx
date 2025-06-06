@@ -1,3 +1,4 @@
+import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 export const socialLinks = [
