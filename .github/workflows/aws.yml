@@ -22,7 +22,6 @@ jobs:
           port: 22
           script: |
             cd /home/ec2-user
-            rm -rf temp-repo
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
              mkdir -p /home/ec2-user/app/deployment
