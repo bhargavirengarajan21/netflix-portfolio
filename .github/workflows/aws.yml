@@ -21,6 +21,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
+            rm -rf app
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
              mkdir -p deployment
