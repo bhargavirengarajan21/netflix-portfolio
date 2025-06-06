@@ -1,0 +1,13 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # or change to 'master' if your repo uses that
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: echo "✅ Workflow is working"
