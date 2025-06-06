@@ -1,13 +1,12 @@
-name: Deploy to EC2
+name: Test Actions
 
 on:
   push:
-    branches:
-      - main  # or change to 'master' if your repo uses that
+    branches: [ main ]
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello
-        run: echo "✅ Workflow is working"
+      - name: Say Hello
+        run: echo "👋 Hello from Actions!"
