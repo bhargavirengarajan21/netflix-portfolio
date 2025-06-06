@@ -25,7 +25,8 @@ jobs:
             rm -rf temp-repo
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
-            echo "${{ secrets.ENV_FILE }}" > /home/ec2-user/app/.env
+             mkdir -p /home/ec2-user/app/deployment
+             echo "${{ secrets.ENV_FILE }}" > /home/ec2-user/app/deployment/.env
 
             cd app
             docker-compose down || true
