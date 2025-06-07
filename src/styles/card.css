@@ -6,6 +6,7 @@
   border: 2px solid white;
   transition: transform 0.2s;
   margin: 0.5rem;
+  z-index: 0;
   flex: 0  0 auto;
 }
 .netflix-card:hover,

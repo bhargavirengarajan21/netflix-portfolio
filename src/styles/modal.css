@@ -16,6 +16,10 @@
   width: 90vw;
   color: #fff;
   text-align: left;
+  
+  &::scroll-marker {
+    display: none;
+  }
 }
 .modal-close {
   position: absolute;
