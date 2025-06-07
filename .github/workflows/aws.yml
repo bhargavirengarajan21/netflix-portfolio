@@ -17,6 +17,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
+          envs: FRONTEND_ENV_FILE,BACKEND_ENV_FILE
           script: |
             set -e
 
@@ -26,19 +27,16 @@ jobs:
 
             cd app
 
-            # Write frontend .env using heredoc correctly
             echo "$FRONTEND_ENV_FILE" > .env
-
-            # Write backend .env using heredoc correctly
             mkdir -p deployment
             echo "$BACKEND_ENV_FILE" > deployment/.env
 
             echo "📂 Contents of ~/app:"
             ls -la
-            
+
             echo "📄 .env contents:"
             cat .env || echo ".env missing"
-            
+
             echo "📄 deployment/.env contents:"
             cat deployment/.env || echo "deployment/.env missing"
 
@@ -46,3 +44,6 @@ jobs:
             docker-compose up -d --build
 
             sudo systemctl reload nginx || true
+        env:
+          FRONTEND_ENV_FILE: ${{ secrets.FRONTEND_ENV_FILE }}
+          BACKEND_ENV_FILE: ${{ secrets.BACKEND_ENV_FILE }}
