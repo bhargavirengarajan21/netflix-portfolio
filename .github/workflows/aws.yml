@@ -29,8 +29,9 @@ jobs:
 
             cd app
             mkdir deployment
-            printf "%s\n" "${{ secrets.FRONTEND_ENV_FILE }}" > .env
-            printf "%s\n" "${{ secrets.BACKEND_ENV_FILE }}" > deployment/.env
+            echo "${{ secrets.FRONTEND_ENV_FILE_B64 }}" | base64 -d > .env
+            echo "${{ secrets.BACKEND_ENV_FILE_B64 }}" | base64 -d > deployment/.env
+
 
             docker-compose down || true
             docker-compose up -d --build
