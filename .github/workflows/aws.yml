@@ -17,7 +17,6 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
-          envs: FRONTEND_ENV_FILE,BACKEND_ENV_FILE
           script: |
             set -e
 
@@ -27,7 +26,7 @@ jobs:
 
             cd app
 
-            echo "$FRONTEND_ENV_FILE" > .env
+            echo `${{ secrets.FRONTEND_ENV_FILE }}` > .env
             mkdir -p deployment
             echo "$BACKEND_ENV_FILE" > deployment/.env
 
@@ -44,6 +43,4 @@ jobs:
             docker-compose up -d --build
 
             sudo systemctl reload nginx || true
-        env:
-          FRONTEND_ENV_FILE: ${{ secrets.FRONTEND_ENV_FILE }}
-          BACKEND_ENV_FILE: ${{ secrets.BACKEND_ENV_FILE }}
+      
