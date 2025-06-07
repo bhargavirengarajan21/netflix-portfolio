@@ -27,15 +27,11 @@ jobs:
             cd app
 
             # Write frontend .env using heredoc correctly
-            cat <<EOF > .env
-            ${{ secrets.FRONTEND_ENV_FILE }}
-            EOF
+            echo "$FRONTEND_ENV_FILE" > .env
 
             # Write backend .env using heredoc correctly
             mkdir -p deployment
-            cat <<EOF > deployment/.env
-            ${{ secrets.BACKEND_ENV_FILE }}
-            EOF
+            echo "$BACKEND_ENV_FILE" > deployment/.env
 
             docker-compose down || true
             docker-compose up -d --build
