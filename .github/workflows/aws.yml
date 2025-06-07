@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: SSH into EC2 and deploy
+      - name: SSH into EC2 and create env files
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -25,12 +25,16 @@ jobs:
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
             cd app
-           
-            touch .env
-            mkdir deployment
-            touch deployment/.env
-            docker-compose down || true
-            docker-compose up -d --build
 
-            sudo systemctl reload nginx || true
-      
+            # Create .env with a newline (safer than touch)
+            echo "" > .env
+
+            # Create backend env structure and file
+            mkdir -p deployment
+            echo "" > deployment/.env
+
+            echo "✅ Created the following files:"
+            ls -la
+            echo "📁 deployment directory:"
+            ls -la deployment
+
