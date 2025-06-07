@@ -10,13 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: SSH into EC2 and create env files
+      - name: SSH into EC2 and deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
+          envs: FRONTEND_ENV_FILE,BACKEND_ENV_FILE
           script: |
             set -e
 
@@ -26,15 +27,23 @@ jobs:
 
             cd app
 
-            # Create .env with a newline (safer than touch)
-            echo "" > .env
-
-            # Create backend env structure and file
+            echo "$FRONTEND_ENV_FILE" > .env
             mkdir -p deployment
-            echo "" > deployment/.env
+            echo "$BACKEND_ENV_FILE" > deployment/.env
 
-            echo "✅ Created the following files:"
+            echo "📂 Contents of ~/app:"
             ls -la
-            echo "📁 deployment directory:"
-            ls -la deployment
 
+            echo "📄 .env contents:"
+            cat .env || echo ".env missing"
+
+            echo "📄 deployment/.env contents:"
+            cat deployment/.env || echo "deployment/.env missing"
+
+            docker-compose down || true
+            docker-compose up -d --build
+
+            sudo systemctl reload nginx || true
+        env:
+          FRONTEND_ENV_FILE: ${{ secrets.FRONTEND_ENV_FILE }}
+          BACKEND_ENV_FILE: ${{ secrets.BACKEND_ENV_FILE }}
