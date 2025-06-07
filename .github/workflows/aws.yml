@@ -33,6 +33,15 @@ jobs:
             mkdir -p deployment
             echo "$BACKEND_ENV_FILE" > deployment/.env
 
+            echo "📂 Contents of ~/app:"
+            ls -la
+            
+            echo "📄 .env contents:"
+            cat .env || echo ".env missing"
+            
+            echo "📄 deployment/.env contents:"
+            cat deployment/.env || echo "deployment/.env missing"
+
             docker-compose down || true
             docker-compose up -d --build
 
