@@ -125,6 +125,8 @@ npm run build
 8. **Domain Name Configuration:**
    - Point your domain’s DNS A record to your EC2 public IP.
    - Set up SSL with Let’s Encrypt (recommended for HTTPS).
+   - 
+After deploying the project or manually creating the .env file on an EC2 instance, you might not see it using a basic ls command. This is because files that begin with a dot (like .env, .gitignore, etc.) are hidden by default in Unix-based systems. To verify that the .env file exists, use ls -la instead. This will list all files, including hidden ones, and confirm that your environment file was successfully created.
 
 ## Customization
 
