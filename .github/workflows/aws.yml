@@ -3,16 +3,13 @@ name: Deploy to EC2 via SSH
 on:
   push:
     branches:
-      - master
+      - master  # or 'main' if that's your actual default branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: SSH into EC2 and deploy
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -24,14 +21,21 @@ jobs:
             set -e
 
             cd ~
-            sudo rm -rf app  # Use sudo to avoid permission issues
+            sudo rm -rf app
             git clone https://github.com/bhargavirengarajan21/netflix-portfolio.git app
 
             cd app
-            mkdir deployment
-            printf "%s\n" "${{ secrets.FRONTEND_ENV_FILE }}" | base64 -d > .env
-            printf "%s\n" "${{ secrets.BACKEND_ENV_FILE }}" | base64 -d > deployment/.env
 
+            # Write frontend .env using heredoc correctly
+            cat <<EOF > .env
+            ${{ secrets.FRONTEND_ENV_FILE }}
+            EOF
+
+            # Write backend .env using heredoc correctly
+            mkdir -p deployment
+            cat <<EOF > deployment/.env
+            ${{ secrets.BACKEND_ENV_FILE }}
+            EOF
 
             docker-compose down || true
             docker-compose up -d --build
