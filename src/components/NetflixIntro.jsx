@@ -25,10 +25,9 @@ const NetflixIntro = () => {
     play();
     setTimeout(() => { 
       setData((prev) => ({...prev, showedIntro: true}));
-      window.location.href = redirectURL;
+      window.location.href="/browse";      
     }, 5000);
     clearTimeout();
-    
   };
 
   return (
