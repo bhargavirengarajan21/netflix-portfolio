@@ -1,6 +1,6 @@
 import Redis from 'ioredis';
 
-const redisClient = new Redis(process.env.REDIS_URL);
+const redisClient = new Redis();
 
 async function setSessionValue(key, value) {
   await redisClient.set(key, value);

@@ -11,6 +11,8 @@
 @import './experience.css';
 @import './skill.css';
 @import './theme.css';
+@import './scrollable.css';
+@import './chat.css';
 
 :root {
   --bg: #ffffff;
@@ -41,6 +43,10 @@ a,h1,h2,h3,h4,h5,h6 {
   color: var(--text) !important;
 }
 
+.skill-name {
+  color: var(--text);
+}
+
 
 h1,h2,h3,h4,h5,h6 {
   margin-bottom: 0;
@@ -69,3 +75,24 @@ h1,h2,h3,h4,h5,h6 {
     filter: brightness(1);
   }
 }
+
+.chat-widget {
+  background: black;
+  color: white;
+
+  h3, select {
+    color: white !important;
+  }
+}
+
+[data-theme='dark'] {
+  .chat-widget {
+    background: white;
+    color: black;
+  }
+
+  h3, select {
+    color: black !important;
+  }
+}
+

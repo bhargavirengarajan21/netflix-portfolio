@@ -27,7 +27,7 @@ app.post('/login', authToken, (req, res) => {
 
 app.get("/get-session", async (req, res) => {
   const user = await getSessionValue("user");
-  if (!user) return res.status(401).json({ message: "Session not found" });
+  if (!user) return res.json({});
   return res.json({ user });
 });
 

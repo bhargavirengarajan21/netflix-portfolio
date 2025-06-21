@@ -7,6 +7,12 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+.skills-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
 .skill-name {
   font-size: 14px;
   color: #333;
@@ -109,4 +115,8 @@
   outline: none;
   border-color: #e50914;
   box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.4);
+}
+
+.scroll-button {
+  display: none !important;
 }

@@ -1,76 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import recommendations from "../data/recommendation.js";
 import LinkedInBadge from "../components/LinkedinBadge.jsx";
+import HorizontalScrollContainer from './Scrollable';
 import { useData } from "../Context.jsx";
 import axios from "axios"; 
 
 const HireMeChat = () => {
-  const { data } = useData();
-  const [role, setRole] = useState("recruiter");
-  const [chat, setChat] = useState([]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
-    const userMsg = { sender: "you", text: input };
-    setChat((prev) => [...prev, userMsg]);
-    setInput("");
-    setLoading(true);
-
-    try {
-      const res = await axios.post("/generate", {
-        role,
-        question: input,
-      });
-      console.log(res);
-      const botMsg = { sender: "ai", text: res.data.content };
-      setChat((prev) => [...prev, botMsg]);
-    } catch (err) {
-      setChat((prev) => [...prev, { sender: "ai", text: "Oops, something went wrong." }]);
-      console.log(err)
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [window.innerWidth]);
+  
+  
   return (
     <>
-      <h3>💬 Hire Me – Real-Time Chat</h3>
+      <h2> Hire Me </h2>
       <section id="hireme" className="hireme-section">
         <div className="hireme-column hireme-contact">
           <LinkedInBadge />
-          <h2>Talk to Me Live</h2>
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
-            <option value="recruiter">Recruiter</option>
-            <option value="friend">Friend</option>
-            <option value="manager">Collaborator</option>
-          </select>
-
-          <div className="chat-box">
-            {chat.map((msg, idx) => (
-              <div key={idx} className={`chat-bubble ${msg.sender}`}>
-                {msg.text}
-              </div>
-            ))}
-            {loading && <div className="chat-bubble ai">Typing...</div>}
-          </div>
-
-          <div className="chat-input">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-              placeholder="Type your message..."
-            />
-            <button onClick={sendMessage}>Send</button>
+          <h2>Contact Me</h2>
+          <div className="hireme-contact-info">
+            <h4>Email:</h4>
+            <a href="mailto: breng002@ucr.edu">breng002@ucr.edu</a>
+            <h4>Blogs:</h4>
+            <a href="https://medium.com/@breng002" target="_blank" rel="noopener noreferrer"> https://dev.to/bhargavirengarajan21/what-is-dockerfile-docker-series-iii-35ai </a>
+            <h4>Quora:</h4>
+            <a href="https://www.quora.com/profile/Bhargavi-Rengarajan-3" target="_blank" rel="noopener noreferrer" >https://www.quora.com/profile/Bhargavi-Rengarajan-3</a>
+            <h4>Github:</h4>
+            <a href="https://github.com/bhargavirengarajan21" target="_blank" rel="noopener noreferrer">https://github.com/bhargavirengarajan21</a>
           </div>
         </div>
 
         <div className="hireme-column hireme-recommendations">
           <h2>LinkedIn Recommendations</h2>
-          <div className="recommendations-list">
+          <HorizontalScrollContainer isShow={isMobile}>
+            <div className="recommendations-list">
             {recommendations.map((rec, idx) => (
               <div className="recommendation-card" key={idx}>
                 <p className="recommendation-text">"{rec.text}"</p>
@@ -80,6 +49,7 @@ const HireMeChat = () => {
               </div>
             ))}
           </div>
+          </HorizontalScrollContainer>
         </div>
       </section>
     </>

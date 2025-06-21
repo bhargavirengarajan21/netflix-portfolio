@@ -69,7 +69,7 @@
   position: absolute;
   top: 1rem;
   width: 9rem;
-  z-index: 3;
+  z-index: 1;
 
   .profile-dropdown-menu {
     position: absolute;

@@ -40,3 +40,7 @@
 .dashboard-container {
   position: relative;
 }
+
+.project-title {
+  font-size: 2rem;
+}

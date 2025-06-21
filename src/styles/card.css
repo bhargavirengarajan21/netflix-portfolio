@@ -22,10 +22,11 @@
   object-fit: cover;
   display: block;
 }
+
 .card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #181818 30%, transparent 100%);
+  background: linear-gradient(to top, #181818 10%, transparent 100%);
   color: #fff;
   opacity: 1;
   transition: opacity 0.2s;

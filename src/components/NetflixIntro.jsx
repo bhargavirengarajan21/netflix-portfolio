@@ -7,11 +7,10 @@ import logoImage from '../assets/name-card.png';
 const NetflixIntro = () => { 
   const [clicked, setClicked] = useState(false);
   const {data, setData} = useData();
-  const redirectURL = data.isLoggedIn? '/browse' : '/login';
 
   useEffect(() => {
       if (data.showedIntro) {
-          window.location.href = redirectURL;
+          window.location.href = '/browse';
       }
   }, []);
 
@@ -33,7 +32,7 @@ const NetflixIntro = () => {
   };
 
   return (
-        <div className="netflix-container"  onClick={handlePlayClick}>
+        <div className="netflix-container"  onClick={handlePlayClick} onLoad={handlePlayClick}>
             <img 
               src={logoImage} 
               alt="Custom Logo" 

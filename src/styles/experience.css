@@ -1,120 +1,136 @@
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: 9999;
+.roadmap-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: white;
+}
+.roadmap-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.roadmap-timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 2rem;
+}
+
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background-color: #374151;
+  z-index: 0;
+}
+
+.roadmap-timeline .roadmap-fill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  background-color: #e11d48;
+  z-index: 1;
+  transition: height 0.4s ease;
+}
+
+.roadmap-timeline .roadmap-step {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 3rem;
+  gap: 1rem;
+}
+
+.roadmap-timeline .roadmap-step.even {
+  flex-direction: row-reverse;
+}
+.roadmap-timeline .roadmap-step .roadmap-dot {
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  border-radius: 50%;
+  background-color: #111827;
+  border: 3px solid #e11d48;
+  color: #e11d48;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 3;
+  margin-top: 0.3rem;
+}
+.roadmap-timeline .roadmap-step .roadmap-card {
+  flex: 1;
+  background-color: #1f2937; /* gray-800 */
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.roadmap-timeline .roadmap-step .roadmap-card:hover {
+  background-color: #b91c1c; /* red-800 */
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-header .roadmap-role {
+  font-style: italic;
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-header .episode-toggle {
+  font-weight: bold;
+  margin-left: auto;
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-description {
+  margin-top: 0.3rem;
+  color: #d1d5db; 
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1rem;
+  background-color: #111827;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-content.open {
+  max-height: 500px;
+  padding: 1rem;
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-content .roadmap-details {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-content .episode-certs {
+  margin-top: 0.5rem;
+}
+.roadmap-timeline .roadmap-step .roadmap-card .roadmap-content .episode-certs ul {
+  margin-left: 1.2rem;
+}
+
+.roadmap-step {
+  left:55%;
+  position: relative;
+  width: 45%;
+}
+
+.roadmap-step.even {
+  left: 0%;
 }
 
 .modal-content {
-  background: #181818;
-  color: #fff;
-  padding: 32px 24px 24px 24px;
-  border-radius: 14px;
-  max-width: 700px;
-  width: 95vw;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-.episodes-list {
-  margin-top: 18px;
-}
-
-.episode-card {
-  background: #232323;
-  margin-bottom: 18px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.14);
-}
-
-.episode-row {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 14px 18px;
-  background: #282828;
-  border-bottom: 1px solid #333;
-}
-
-.episode-year {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  min-width: 110px;
-  width: 30%;
-}
-
-.episode-role {
-  font-size: 1em;
-  color: #fff;
-  width: 65%;
-  min-width: 210px;
-}
-
-.episode-description {
-  flex: 1;
-  color: #fff;
-  font-style: italic;
-  margin-top: 12px;
-  width: 100%;
-  font-size: 0.75rem;
-  font-weight: normal;
-}
-
-.episode-toggle {
-  font-size: 1rem;
-  color: #fff;
-  width: 5%;
-  margin-left: 18px;
-}
-
-.episode-details {
-  padding: 14px 24px 16px 24px;
-  background: #1a1a1a;
-
-  li {
-    font-size: 1rem;
-    font-weight: normal;
-    color: #aaa;
-  }
-}
-
-.episode-details ul {
-  margin: 0 0 8px 0;
-  padding-left: 18px;
-}
-
-.episode-certs {
-  margin-top: 6px;
-}
-
-.episode-certs ul {
-  padding-left: 20px;
-  margin: 0;
-}
-
-
-.episode-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
+  height: 90%;
+  overflow: scroll;
+  max-width: 90%;
+  width: 90%;
 }

@@ -11,6 +11,7 @@
   @media (max-width: 900px) {
     top: 30%;
     font-size: 0.5rem;
+    color: white;
   }
 }
 
@@ -33,7 +34,7 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  left: 2px;
+  right: 55%;
   top: 2px;
   background-color: white;
   border-radius: 50%;

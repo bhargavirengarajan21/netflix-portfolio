@@ -73,12 +73,32 @@
   background: #b0060f;
 }
 
+.hireme-contact-info {
+  display: grid;
+  grid-template-columns: 20% 70%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+ 
+  a{
+    color: red !important;
+
+    @media screen and (max-width: 750px) {
+      font-size: 0.8rem;
+    }
+  }
+}
+
 .recommendations-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+
+  @media screen and (max-width: 750px) {
+    flex-wrap: nowrap;
+  }
 }
 
 .recommendation-card {
@@ -123,36 +143,6 @@
   }
 }
 
-
-.chat-box {
-  background: #1c1c1c;
-  padding: 1rem;
-  max-height: 300px;
-  overflow-y: auto;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-.chat-bubble {
-  padding: 0.7rem;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
-  max-width: 80%;
-}
-.chat-bubble.you {
-  background: #e50914;
-  color: white;
-  align-self: flex-end;
-}
-.chat-bubble.ai {
-  background: #333;
-  color: #fff;
-  align-self: flex-start;
-}
-.chat-input {
-  display: flex;
-  gap: 0.5rem;
-}
-.chat-input input {
-  flex: 1;
-  padding: 0.5rem;
+.scroll-button {
+  display: none;
 }

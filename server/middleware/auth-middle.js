@@ -17,9 +17,6 @@ const authToken = async (req, res, next) => {
 
 const validateLoggedIn = async (req, res, next) => {
   const user = await getSessionValue("user");
-  if (!user) {
-    return res.redirect("/login");
-  }
   req.session = user;
   next();
 };

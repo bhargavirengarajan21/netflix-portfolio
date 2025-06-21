@@ -6,10 +6,9 @@ import Layout from '../components/Layout';
 
 const Home = () => {
     const {data, setData} = useData();
-    const redirectURL = data.isLoggedIn ? '/browse' : '/login';
     useEffect(() => {
        if (data.showedIntro) {
-           window.location.href = redirectURL;
+           window.location.href = '/browse';
        }
    }, [])
 
