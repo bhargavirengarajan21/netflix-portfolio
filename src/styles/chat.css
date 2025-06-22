@@ -22,7 +22,7 @@
 
     @media screen and (max-width: 768px) {
       width: 2.5rem;
-      height: 3.5rem; 
+      height: 2.5rem; 
     }
   }
 
@@ -137,5 +137,10 @@ select {
 
 .chat-icon.widget-open {
   width: 2.5rem;
-  height: 2.5rem;
+  height: 3.5rem;
+
+  img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }

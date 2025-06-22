@@ -79,8 +79,13 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+
+  h4 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
  
-  a{
+  a {
     color: red !important;
 
     @media screen and (max-width: 750px) {
