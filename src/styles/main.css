@@ -89,10 +89,10 @@ h1,h2,h3,h4,h5,h6 {
   .chat-widget {
     background: white;
     color: black;
-  }
-
-  h3, select {
-    color: black !important;
+    
+    h3, select {
+      color: black !important;
+    }
   }
 }
 
