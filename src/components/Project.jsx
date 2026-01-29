@@ -20,7 +20,7 @@ const Project = () => {
 
   return (
   <div id="project" className="dashboard-container">
-      <h3 className="project-title">Now Streaming: Projects</h3>
+      <h2 className="project-title">Now Streaming: Projects</h2>
       <button className="scroll-arrow left" onClick={() => scroll('left')}>‹</button>
       <button className="scroll-arrow right" onClick={() => scroll('right')}>›</button>
       <div className="card-row" ref={scrollRef}>

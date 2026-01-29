@@ -9,10 +9,10 @@
 @import './hireme.css';
 @import './login.css';
 @import './experience.css';
-@import './skill.css';
 @import './theme.css';
 @import './scrollable.css';
 @import './chat.css';
+@import './resume.css';
 
 :root {
   --bg: #ffffff;

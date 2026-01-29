@@ -7,7 +7,7 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleResume = () => {
-    window.open("https://drive.google.com/file/d/19O-rgH4Lge8NIhfkJNmsaFc2ceMtW0fR/view?usp=sharing", "_blank");
+    window.open("/resume", "_blank");
   }
 
   return (

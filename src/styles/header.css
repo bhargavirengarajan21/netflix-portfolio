@@ -4,6 +4,7 @@
    grid-template-columns: 25% 65% 10%; 
    background-color: transparent; 
    height: 5%;
+   justify-content: center;
    gap: 2rem;
  
     a {
@@ -41,7 +42,7 @@
     .logo {
         img {
             width: 100%;
-            padding-right: 2rem;
+            padding-left: 2rem;
         }
     }
 
