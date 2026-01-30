@@ -41,8 +41,8 @@ const ResumePage = () => {
     trackResumeDownload(activeType);
     const link = document.createElement("a");
     link.href = activeType === "frontend" 
-      ? "/data/Bhargavi%20Rengarajan%20-%20Frontend.pdf"
-      : "/data/Bhargavi-Rengarajan-Software%20ENgineer.pdf";
+      ? "https://github.com/bhargavirengarajan21/netflix-portfolio/blob/master/src/data/Bhargavi%20Rengarajan%20-%20Frontend.pdf"
+      : "https://github.com/bhargavirengarajan21/netflix-portfolio/blob/master/src/data/Bhargavi-Rengarajan-Software%20ENgineer.pdf";
     link.download = `Bhargavi_Rengarajan_${activeType === "frontend" ? "Frontend" : "Software_Engineer"}.pdf`;
     link.click();
   };
