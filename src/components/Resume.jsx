@@ -41,8 +41,8 @@ const ResumePage = () => {
     trackResumeDownload(activeType);
     const link = document.createElement("a");
     link.href = activeType === "frontend" 
-      ? "/data/Bhargavi%20Rengarajan%20-%20Frontend.pdf"
-      : "/data/Bhargavi-Rengarajan-Software%20ENgineer.pdf";
+      ? "https://drive.google.com/file/d/1bCfrN0bkt1q_JMTbSmlUAgd-rr9uAnIg/view"
+      : "https://drive.google.com/file/d/1XsuuQY_A_eHJS1GGu-5KXPalY-_IuoN8/view";
     link.download = `Bhargavi_Rengarajan_${activeType === "frontend" ? "Frontend" : "Software_Engineer"}.pdf`;
     link.click();
   };
