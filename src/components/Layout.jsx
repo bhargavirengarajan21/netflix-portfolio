@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from './Header';
 import { useData } from '../Context';
+import { Analytics } from "@vercel/analytics/next"
 import Footer from './Footer';
 import ChatIcon from './Chat';
 
@@ -33,6 +34,7 @@ const Layout = ({children}) => {
                 </main>
                 <ChatIcon />
                 <Footer/>
+                <Analytics />
             </div>
         </>
     );
