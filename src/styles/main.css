@@ -28,7 +28,7 @@
   --accent: #e50914;
 }
 
-body {
+body, .resume-page {
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Helvetica Neue', sans-serif;
@@ -90,8 +90,13 @@ h1,h2,h3,h4,h5,h6 {
     background: white;
     color: black;
     
-    h3, select {
+    h3 {
       color: black !important;
+    }
+
+    select {
+      color: black !important;
+      background: white !important;
     }
   }
 }

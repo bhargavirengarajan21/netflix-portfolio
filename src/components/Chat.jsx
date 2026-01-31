@@ -57,15 +57,7 @@ const ChatWidget = ({
             <span className="status-text">Online now</span>
           </div>
         </div>
-        <button className="close-btn" onClick={onClose}>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path
-              d="M1 1L13 13M1 13L13 1"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
+        <button className="close-btn" onClick={onClose}> {"X"}
         </button>
       </div>
 

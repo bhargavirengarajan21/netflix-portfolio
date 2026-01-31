@@ -5,7 +5,7 @@ dotenv.config({ path: "./deployment/.env" });
 
 export const AIMailService = async (req, res) => {
   const { role, question } = req.body;
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCkdDMnwjXBTvC0mjxjyBmjgYIU5qdRJaY`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
 
   const resumeText = fs.readFileSync('./server/service/data/resume.txt', 'utf8');
   const prompt = `Assume you are Bhargavi not Gemini and also answer in concise , now you are talking to  a ${role}. Here is about me ${resumeText} chat with the ${role} and answer if only they ask about me if not chat generally only one message. Message: ${question}`;

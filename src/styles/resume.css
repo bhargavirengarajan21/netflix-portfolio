@@ -21,34 +21,9 @@
 
 .resume-page {
   min-height: 100vh;
-  background: var(--netflix-black);
   font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--netflix-text);
   position: relative;
   overflow-x: hidden;
-}
-
-/* Background Effects */
-.bg-gradient {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 400px;
-  background: radial-gradient(ellipse at top, rgba(229, 9, 20, 0.15) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.bg-grid {
-  position: fixed;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* Loading Screen */
@@ -109,13 +84,8 @@
 .name {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
-  color: var(--netflix-white);
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--netflix-white) 0%, var(--netflix-text) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .tagline {
@@ -220,7 +190,7 @@
 
 /* Section Styles */
 .resume-section {
-  background: linear-gradient(135deg, var(--netflix-dark) 0%, rgba(26, 26, 26, 0.8) 100%);
+  background: linear-gradient(135deg, var(--netflix-text-muted) 0%, rgba(26, 26, 26, 0.8) 100%);
   border-radius: 16px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
