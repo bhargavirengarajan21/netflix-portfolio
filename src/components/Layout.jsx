@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from './Header';
 import { useData } from '../Context';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 import Footer from './Footer';
 import ChatIcon from './Chat';
 
