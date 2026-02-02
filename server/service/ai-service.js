@@ -13,6 +13,7 @@ export const AIMailService = async (req, res) => {
   const body = {
     contents: [
       {
+        role: "user",
         parts: [
           {
             text: prompt,
@@ -25,7 +26,8 @@ export const AIMailService = async (req, res) => {
  axios
   .post(url, body, { headers: { 'Content-Type': 'application/json' } })
   .then((response) => {
-    const message = response.data.candidates?.[0]?.content?.parts?.[0]?.text;
+    console.log(response);
+    const message = response.data?.[0]?.candidates?.[0]?.content?.parts?.[0]?.text;;
     console.log("Gemini:", message);
     res.status(200).json({success: true, content: message});
   })

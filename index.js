@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from 'uuid';
 import dotenv from "dotenv";
-dotenv.config({ path: "./deployment/.env" });
+dotenv.config({ path: "./.env" });
 import cors from 'cors';
 import { validateLoggedIn, authToken, setSession, getSessionValue, unsetSession } from "./server/middleware/auth-middle.js";
 import { AIMailService, mailService } from "./server/service/ai-service.js";
